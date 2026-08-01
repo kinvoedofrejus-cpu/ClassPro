@@ -1,0 +1,26 @@
+{
+  "name": "classpro",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev:worker": "wrangler dev",
+    "dev:web": "vite",
+    "build": "vite build",
+    "deploy": "npm run build && wrangler deploy",
+    "db:create": "wrangler d1 create classpro-db",
+    "db:migrate:local": "wrangler d1 execute classpro-db --file=./schema.sql --local",
+    "db:migrate:remote": "wrangler d1 execute classpro-db --file=./schema.sql --remote"
+  },
+  "dependencies": {
+    "hono": "^4.6.14",
+    "lucide-react": "^0.383.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11",
+    "wrangler": "^4.0.0"
+  }
+}
